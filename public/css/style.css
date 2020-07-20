@@ -1,11 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@900&family=Varta&display=swap');
 
 body {
-    font-family: 'Arima Madurai', serif;
-}
-
-body nav {
     font-family: 'Varta', sans-serif;
+    background-color: blanchedalmond;
 }
 
 .animated-icon2 {

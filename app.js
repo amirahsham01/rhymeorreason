@@ -47,15 +47,19 @@ app.use(flash());
 
 //set global variable for ejs files
 //third param is mostly called next (moveOn)
-app.use(function (req, res, moveOn) {
-  res.locals.alerts = req.flash();
-  res.locals.currentUser = req.user;
-  moveOn();
+app.use(function (request, response, next) {
+  response.locals.alerts = request.flash();
+  response.locals.currentUser = request.user;
+  next();
 });
 
 //all routes
-app.get("/", (req, res) => {
-    res.render("poems/index");
+app.get("/", (request, response) => {
+    response.render("poems/index");
+});
+
+app.get("/dashboard", isLoggedIn, (request, response) => {
+  response.render("dashboard/index");
 });
 
 app.use("/user", require("./routes/user.route"));

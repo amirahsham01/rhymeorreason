@@ -1,27 +1,35 @@
 const router = require("express").Router();
-const passport = require("../lib/passportConfig");
 const User = require("../models/user.model");
-const Poem = require("../models/poem.model");
+const passport = require("../lib/passportConfig");
+const bcrypt = require("bcrypt");
+const saltRounds = 10;
 
 router.get("/register", (request, response) => {
   response.render("auth/register");
 });
 
-router.post("/register", (request, response) => {
-  let user = new User(request.body);
-  console.log(user);
+router.post("/register", async (request, response) => {
+    try {
+        let { firstname, lastname, email, password } = request.body;
+    
+        //hash password dont save password in plain text
+        let hashedPassword = await bcrypt.hash(password, saltRounds);
+        let user = new User({
+          firstname,
+          lastname,
+          email,
+          password: hashedPassword,
+        });
 
-  user
-    .save()
-    .then(() => {
-      passport.authenticate("local", {
-        successRedirect: "/dashboard/index", //after login success
-        successFlash: "You have logged In!"
-      })(request, response);
-    })
-    .catch(err => {
-      console.log(err);
-    });
+        let savedUser = await user.save();
+    
+        if (savedUser) {
+            request.flash("success", "Welcome new reader! Please log in to proceed.");
+            response.redirect("/user/login");
+        }
+    } catch (error) {
+        console.log(error);
+    }
 });
 
 router.get("/login", (request, response) => {
@@ -29,11 +37,10 @@ router.get("/login", (request, response) => {
 });
 
 //-- Login Route
-router.post(
-  "/login",
+router.post("/login",
   passport.authenticate("local", {
-    successRedirect: "/dashboard/index", //after login success
-    failureRedirect: "/auth/login", //if fail
+    successRedirect: "/dashboard", //after login success
+    failureRedirect: "/user/login", //if fail
     failureFlash: "Invalid Username or Password",
     successFlash: "You have logged In!"
   })
@@ -43,7 +50,7 @@ router.post(
 router.get("/logout", (request, response) => {
   request.logout(); //clear and break session
   request.flash("success", "Dont leave please come back!");
-  response.redirect("/auth/login");
+  response.redirect("/user/login");
 });
 
 module.exports = router;
