@@ -11,7 +11,7 @@ const poemSchema = Schema({
     ref: "Author",
   },
   date: {
-    type: date,
+    type: Date,
     required: true,
   },
   content: {

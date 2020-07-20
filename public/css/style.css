@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@900&family=Varta&display=swap');
+
+body {
+    font-family: 'Arima Madurai', serif;
+}
+
+body nav {
+    font-family: 'Varta', sans-serif;
+}
+
 .animated-icon2 {
     width: 30px;
     height: 45px;
@@ -7,7 +17,7 @@
     transition: .5s ease-in-out;
     cursor: pointer;
 }
-    
+
 .animated-icon2 span {
     display: block;
     position: absolute;
@@ -19,37 +29,37 @@
     transform: rotate(0deg);
     transition: .25s ease-in-out;
 }
-    
+
 .animated-icon2 span {
-    background: #e3f2fd;
+    background: #F4EFEB;
 }
-    
+
 .animated-icon2 span:nth-child(1) {
     top: 10px;
 }
-    
+
 .animated-icon2 span:nth-child(2), .animated-icon2 span:nth-child(3) {
     top: 20px;
 }
-    
+
 .animated-icon2 span:nth-child(4) {
     top: 30px;
 }
-    
+
 .animated-icon2.open span:nth-child(1) {
     top: 11px;
     width: 0%;
     left: 50%;
 }
-    
+
 .animated-icon2.open span:nth-child(2) {
     transform: rotate(45deg);
-    }
-    
+}
+
 .animated-icon2.open span:nth-child(3) {
     transform: rotate(-45deg);
 }
-    
+
 .animated-icon2.open span:nth-child(4) {
     top: 11px;
     width: 0%;
