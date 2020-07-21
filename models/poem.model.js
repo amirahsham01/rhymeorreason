@@ -18,6 +18,11 @@ const poemSchema = Schema({
     type: String,
     required: true,
   },
+  chapter: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Chapter",
+    },
+
 });
 
 const Poem = mongoose.model("Poem", poemSchema);

@@ -1,0 +1,17 @@
+<h1>Contribute a Poem</h1>
+<form action="/poems/new" method="post">
+    <input name="title" placeholder="Poem Title"/>
+    <input name="author" placeholder="Author"/>
+    <input name="date" placeholder="Date Written"/>
+  
+    <select name="chapter">
+      <option value="">Select Chapter</option>
+      <% chapters.forEach(chapter => { %>
+      <option value="<%= chapter._id %>"><%= chapter.name %></option>
+      <% }) %>
+    </select>
+
+    <textarea name="content"cols="30" rows="10"></textarea>
+  
+    <button type="submit">Submit</button>
+</form>

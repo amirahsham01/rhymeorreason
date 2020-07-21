@@ -10,7 +10,7 @@ const authorSchema = Schema({
     type: String,
     required: true,
   },
-  poemsWritten: [
+  poems: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Poem",

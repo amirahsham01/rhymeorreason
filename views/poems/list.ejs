@@ -1,0 +1,65 @@
+<!-- <div class="container mt-4">
+  <div class="row justify-content-md-center"> -->
+      <!-- <% chapters.forEach(chapter => { %>
+      <button type="button" class="btn rounded-pill thisgreen fontwhite"><%= chapter.name %></button>
+      <% }) %> -->
+      <!-- <div class="mt-5">
+        <div class="swiper-pagination"></div> -->
+        <!-- Swiper -->
+        <!-- <div class="swiper-container">
+          <div class="swiper-wrapper">
+            <% chapters.forEach(chapter => { %>
+            <div class="swiper-slide"><%= chapter.name %></div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+  </div>
+</div> -->
+<div class="row justify-content-md-center">
+  <div class="swiper-pagination mt-4"></div>
+</div>
+
+<!-- Swiper -->
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <% chapters.forEach(chapter => { %>
+    <div class="swiper-slide" style="height: 100vh;">
+      <span class="mb-5 mt-4"><%= chapter.name %></span>
+      <a href="#" class="rounded-pill readbutton">Read Chapter</a>
+    </div>
+    <% }) %>
+  </div>
+</div>
+
+
+<!-- 
+<div style="height: 100vh">
+    <div class="flex-center flex-column">
+      <a href="/poems/new">Contribute a Poem</a>
+      <h1 class="animated fadeIn mb-3">list all poems here</h1>
+    </div>
+</div>
+<div class="col-md-3">
+  <h3>Chapter</h3>
+  <div>
+    <form action="/chapter/new" method="POST">
+      <input
+        name="name"
+        placeholder="thai, african..."
+        class="form-control"
+      />
+      <button type="submit" class="mt-2 btn btn-primary btn-block">
+        Add Chapter
+      </button>
+    </form>
+
+    <ul class="list-group mt-3">
+      <% chapters.forEach(chapter => { %>
+      <li class="list-group-item">
+        <%= chapter.name %>
+      </li>
+      <% }) %>
+    </ul>
+  </div>
+</div> -->

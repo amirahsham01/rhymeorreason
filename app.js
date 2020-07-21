@@ -63,6 +63,8 @@ app.get("/dashboard", isLoggedIn, (request, response) => {
 });
 
 app.use("/user", require("./routes/user.route"));
+app.use("/poems", isLoggedIn, require("./routes/poem.route"));
+app.use("/chapter", require("./routes/chapter.route"));
 
 //connect to port
 app.listen(process.env.PORT, () => {
