@@ -130,6 +130,23 @@ body {
     background-color: #794524;
 }
 
+.start {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-family: 'Varta', sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #F4EFEB;
+    background-color: #B46636;
+    margin-top: 50px;
+}
+
+.start:hover {
+    color: #F4EFEB;
+    background-color: #794524;
+}
+
 .swiper-pagination-bullet {
     width: 18px;
     height: 18px;
@@ -150,3 +167,7 @@ body {
     background-color: #c5e273;
 }
 
+#intro-verse {
+    text-align: center;
+    color: white;
+}
