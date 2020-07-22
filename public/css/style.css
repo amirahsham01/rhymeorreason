@@ -101,10 +101,12 @@ body {
 }
 
 .readbutton {
-    padding: 13px 24px;
-    font-size: 18px;
+    padding: 12px 24px;
+    font-size: 16px;
     font-family: 'Varta', sans-serif;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     border: 2px solid #E59F91;
     color: #E59F91;
     margin-top: 100px;
@@ -116,10 +118,12 @@ body {
 }
 
 .contribute {
-    padding: 13px 30px;
-    font-size: 18px;
+    padding: 12px 30px;
+    font-size: 16px;
     font-family: 'Varta', sans-serif;
     font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
     color: #F4EFEB;
     background-color: #B46636;
     margin-top: 100px;
