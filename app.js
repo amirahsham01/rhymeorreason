@@ -11,7 +11,7 @@ require("dotenv").config();
 mongoose.Promise = Promise;
 
 mongoose
-  .connect(process.env.MONGOLIVE, {
+  .connect(process.env.MONGODBURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useCreateIndex: true,
@@ -67,7 +67,7 @@ app.get("/dashboard", isLoggedIn, (request, response) => {
 
 app.use("/user", require("./routes/user.route"));
 app.use("/poems", isLoggedIn, require("./routes/poem.route"));
-app.use("/chapter", require("./routes/chapter.route"));
+app.use("/", require("./routes/chapter.route"));
 
 //connect to port
 app.listen(process.env.PORT, () => {

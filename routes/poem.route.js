@@ -1,20 +1,16 @@
 const router = require("express").Router();
-const User = require("../models/user.model");
 const Poem = require("../models/poem.model");
-const Author = require("../models/author.model");
 const Chapter = require("../models/chapter.model");
 
 router.get("/", async (request, response) => {
     try {
-      //get all restaurants
+      //get all poems
       let poems = await Poem.find()
-        .populate("author")
         .populate("chapter");
   
-      //get all cuisines
+      //get all chapters
       let chapters = await Chapter.find();
   
-      // console.log(restaurants);
       response.render("poems/list", { poems, chapters });
     } catch (error) {
       console.log(error);
@@ -26,19 +22,19 @@ router.post("/new", (request, response) => {
 
   let poem = new Poem(request.body);
   console.log(poem);
-  poem.author = request.author._id;
-  //save restaurant first
+  // poem.chapter = request.chapter._id;
+  //save poem first
   poem
     .save()
     .then(() => {
-      //poem : { _id: , author: , title : ,}
+      //poem : { _id: , chapter: , name : ,}
       //if saved then save user
-      Author.findById(poem.author).then((author) => {
-        //push into poems array in author model
-        author.poems.push(poem._id);
+      Chapter.findById(poem.chapter).then((chapter) => {
+        //push into poems array in chapter model
+        chapter.poems.push(poem._id);
 
-        author.save().then(() => {
-          //if sucess redirect to home page
+        chapter.save().then(() => {
+          //if success redirect to home page
           response.redirect("/");
         });
       });
@@ -50,10 +46,9 @@ router.post("/new", (request, response) => {
 
 router.get("/new", async (request, response) => {
   try {
-    let authors = await Author.find();
     let chapters = await Chapter.find();
 
-    response.render("poems/new", { authors, chapters });
+    response.render("poems/new", { chapters });
   } catch (error) {
     console.log(error);
   }

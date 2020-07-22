@@ -7,8 +7,8 @@ const poemSchema = Schema({
     required: true,
   },
   author: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Author",
+    type: String,
+    required: true,
   },
   date: {
     type: Date,
@@ -22,7 +22,6 @@ const poemSchema = Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "Chapter",
     },
-
 });
 
 const Poem = mongoose.model("Poem", poemSchema);

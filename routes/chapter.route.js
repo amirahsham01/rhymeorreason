@@ -21,7 +21,7 @@ router.post("/new", (request, response) => {
   chapter
     .save()
     .then(() => {
-      response.redirect("/poems");
+      response.redirect("poems/new");
     })
     .catch((err) => {
       console.log(err);
