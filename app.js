@@ -8,18 +8,21 @@ const passport = require("./lib/passportConfig");
 const isLoggedIn = require("./lib/blockCheck");
 require("dotenv").config();
 
-mongoose.connect(
-    process.env.MONGODBURL,
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-    },
-    () => {
+mongoose.Promise = Promise;
+
+mongoose
+  .connect(process.env.MONGOLIVE, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+    })
+    .then(() => {
       console.log("MongoDB connected!");
-    }
-);
+    })
+    .catch((e) => {
+      console.log(e);
+});
 
 //middleware
 app.use("/public", express.static('./public/')); //look for static files in public folder

@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Varta', sans-serif;
-    background-color: #F4EFEB;
+    background-color: whitesmoke;
 }
 
 .thisgreen {
@@ -91,7 +91,7 @@ body {
 .swiper-slide {
     text-align: center;
     font-family: 'Arima Madurai', serif;
-    font-size: 66px;
+    font-size: 67px;
     display: flex;
     flex-direction: column;
     justify-content: center;
