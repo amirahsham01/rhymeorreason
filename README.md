@@ -1,11 +1,11 @@
 # SEI 23 - Project 2
 
-## [Rhyme or Reason](https://rhymeorreason.herokuapp.com/)
+#### [Rhyme or Reason](https://rhymeorreason.herokuapp.com/)
 - Hosted on Heroku
 
-### Wireframes
+#### [Wireframes](https://github.com/amirahsham01/rhymeorreason/tree/master/plan)
 
-### User Stories
+#### [User Stories](https://github.com/amirahsham01/rhymeorreason/blob/master/plan/user-stories.md)
 
 ### Overview
 A digital poetry book where users can share poetry, gather literary ideas and inspiration on an online platform. Users can read through the existing archive of poems or hone their writing skills and showcase their own verses.
