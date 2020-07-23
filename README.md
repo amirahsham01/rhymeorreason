@@ -7,21 +7,21 @@
 
 #### [User Stories](https://github.com/amirahsham01/rhymeorreason/blob/master/plan/user-stories.md)
 
-### Overview
+### Overview:
 A digital poetry book where users can share poetry, gather literary ideas and inspiration on an online platform. Users can read through the existing archive of poems or hone their writing skills and showcase their own verses.
 
-### Objectives
+### Objectives:
 - Register and Login for User
 - CRUD Poem and Chapter Model
 - Routes for User, Dashboard, Poem and Chapter
 
-### Technologies used
+### Technologies used:
 - MongoDB
 - Node.js / Express.js
 - Bootstrap / MDBootstrap
 - Jquery
 
-### Approach taken
+### Approach taken:
 - Users, whether registered on the app or not are able to freely browse through poems uploaded by others
 - If they decide to join the community of writers, they are able to register as a member on the app
 - Once registered, users can access their profile information on their dashboard page
