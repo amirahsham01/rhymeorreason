@@ -10,10 +10,6 @@ const poemSchema = Schema({
     type: String,
     required: true,
   },
-  date: {
-    type: Date,
-    required: true,
-  },
   content: {
     type: String,
     required: true,

@@ -5,13 +5,13 @@ const Chapter = require("../models/chapter.model");
 router.get("/", async (request, response) => {
     try {
       //get all poems
-      let poems = await Poem.find()
+      let poem = await Poem.find()
         .populate("chapter");
   
       //get all chapters
       let chapters = await Chapter.find();
   
-      response.render("poems/list", { poems, chapters });
+      response.render("poems/list", { poem, chapters });
     } catch (error) {
       console.log(error);
     }
@@ -22,7 +22,7 @@ router.post("/new", (request, response) => {
 
   let poem = new Poem(request.body);
   console.log(poem);
-  // poem.chapter = request.chapter._id;
+  // poem.chapter = request.body._id;
   //save poem first
   poem
     .save()
@@ -35,7 +35,7 @@ router.post("/new", (request, response) => {
 
         chapter.save().then(() => {
           //if success redirect to home page
-          response.redirect("/");
+          response.redirect("/dashboard");
         });
       });
     })
@@ -44,14 +44,26 @@ router.post("/new", (request, response) => {
     });
 });
 
-router.get("/new", async (request, response) => {
+router.get("/show/:id", async (request, response) => {
   try {
-    let chapters = await Chapter.find();
+    //Populate only includes the data from  cuisine collection and ownedBy collection
+    let chapter = await Chapter.findById(request.params.id)
+      .populate("poems");
 
-    response.render("poems/new", { chapters });
+    response.render("poems/show", { chapter });
   } catch (error) {
     console.log(error);
   }
+});
+
+// router.get("/new", async (request, response) => {
+//   try {
+//     let chapters = await Chapter.find();
+
+//     response.render("dashboard/index", { chapters });
+//   } catch (error) {
+//     console.log(error);
+//   }
 
   //   Author.find() //[]
   //     .then((authors) => {
@@ -70,6 +82,8 @@ router.get("/new", async (request, response) => {
   //     .catch((err) => {
   //       console.log(err);
   //     });
-});
+// });
+
+
 
 module.exports = router;

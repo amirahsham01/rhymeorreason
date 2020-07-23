@@ -59,7 +59,7 @@
                 <a class="nav-link" href="/poems">Start Reading</a>
                 </li>
                 <li class="active nav-item">
-                <a class="nav-link" href="/dashboard">Profile<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/dashboard">Dashboard<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                 <a class="nav-link" href="/user/logout">Logout</a>
@@ -110,6 +110,34 @@
                     clickable: true,
                 },
             });
+            var swiper = new Swiper('.swiper-container2', {
+                pagination: {
+                    el: '.swiper-pagination2',
+                    type: 'fraction',
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+            });
+
+            function insert(main_string, ins_string, pos) {
+                if(typeof(pos) == "undefined") {
+                    pos = 0;
+                }
+                if(typeof(ins_string) == "undefined") {
+                    ins_string = '';
+                }
+                return main_string.slice(0, pos) + ins_string + main_string.slice(pos);
+            }
+
+            var poemEntry = document.querySelector(".poem-text").innerHTML;
+                function addLineBreak() {
+                    var comma = poemEntry.indexOf(",");
+                    return insert(poemEntry, '<br/>', comma + 1);
+                }
+                addLineBreak();
+
         </script>
     </body>
 </html>

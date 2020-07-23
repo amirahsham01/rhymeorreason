@@ -1,0 +1,25 @@
+
+
+<div class="swiper-container2 bg-animation">
+    <div class="row justify-content-md-center">
+        <a href="/poems"><i class="fas fa-arrow-alt-circle-left white-text mt-4 mb-0" style="font-size: 30px;"></i></a>
+    </div>
+
+    <div class="swiper-wrapper" style="height: 80vh;">
+        <% chapter.poems.forEach(poem => {%>
+        <div class="swiper-slide mx-auto mt-0" id="swiper-2">
+            <h5 class="mb-4" style="font-family: 'Arima Madurai';">'<%= poem.title %>'</h5>
+            <p class="poem-text" style="max-width: 25%;"><%= poem.content %></p>
+            <p>- <%= poem.author %></p>
+        </div>
+        <% }) %>
+    </div>
+    <!-- Arrows -->
+    <div class="swiper-button-next mr-4 white-text"></div>
+    <div class="swiper-button-prev ml-4 white-text"></div>
+
+    <div class="row text-center">
+        <div class="swiper-pagination2 mt-0 pb-5 white-text" style="font-size: 21px;">
+        </div>
+    </div>
+</div>

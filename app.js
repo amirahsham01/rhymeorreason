@@ -61,13 +61,11 @@ app.get("/", (request, response) => {
     response.render("poems/index");
 });
 
-app.get("/dashboard", isLoggedIn, (request, response) => {
-  response.render("dashboard/index");
-});
 
 app.use("/user", require("./routes/user.route"));
-app.use("/poems", isLoggedIn, require("./routes/poem.route"));
-app.use("/", require("./routes/chapter.route"));
+app.use("/poems", require("./routes/poem.route"));
+app.use("/dashboard", isLoggedIn, require("./routes/dashboard.route"));
+app.use("/", isLoggedIn, require("./routes/chapter.route"));
 
 //connect to port
 app.listen(process.env.PORT, () => {

@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Arima+Madurai:wght@900&family=Varta:wght@400;700&display=swap');
 
+@keyframes mymove {
+    from {background-color: #293B1F;}
+    to {background-color: #E49F91;}
+}
+
 body {
     font-family: 'Varta', sans-serif;
     background-color: whitesmoke;
@@ -11,10 +16,6 @@ body {
 
 .thisbrown {
     background-color: #B46636;
-}
-
-.fontwhite {
-    color: white;
 }
 
 .fontbrown {
@@ -100,6 +101,23 @@ body {
     margin-top: 30px;
 }
 
+#swiper-2 {
+    font-family: 'Varta', sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    color: white;
+}
+
+.bg-animation {
+    animation: mymove 5s infinite;
+    animation-direction: alternate;
+}
+
+.swiper-container2 {
+    width: 100%;
+    height: 100%;
+}
+
 .readbutton {
     padding: 12px 24px;
     font-size: 16px;
@@ -119,7 +137,7 @@ body {
 
 .contribute {
     padding: 12px 30px;
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Varta', sans-serif;
     font-weight: 700;
     text-transform: uppercase;
@@ -143,7 +161,6 @@ body {
     letter-spacing: 2px;
     color: #F4EFEB;
     background-color: #B46636;
-    margin-top: 50px;
 }
 
 .start:hover {

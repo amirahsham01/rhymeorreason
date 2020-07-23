@@ -1,11 +1,119 @@
-<div style="height: 50vh">
+<div class="modal fade" id="modalPoemForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header text-center">
+      <h4 class="modal-title w-100" style="font-family: 'Arima Madurai';">Contribute a Poem</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form action="/poems/new" method="post">
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <select name="chapter" class="form-control validate">
+            <option value="">Select Chapter</option>
+            <% chapters.forEach(chapter => { %>
+            <option value="<%= chapter._id %>"><%= chapter.name %></option>
+            <% }) %>
+          </select>
+        </div>
 
-  <div class="flex-center flex-row">
-    <a href="/poems/new" class="rounded-pill contribute">Contribute to the Archive</a>
+        <div class="md-form mb-4">
+          <i class="fas fa-tag prefix grey-text"></i>
+          <input type="text" name="title" class="form-control validate" placeholder="Poem Title"/>
+        </div>
+
+        <div class="md-form mb-5">
+          <i class="fas fa-user prefix grey-text"></i>
+          <input type="text" name="author" class="form-control validate"placeholder="Author"/>
+        </div>
+
+        <div class="md-form">
+          <i class="fas fa-pen-fancy prefix grey-text"></i>
+          <textarea type="text" name="content" class="md-textarea form-control" rows="5" placeholder="Your message"></textarea>
+        </div>
+
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="submit" class="btn start" style="font-size: 14px;">Submit</button>
+      </div>
+    </form>
   </div>
+</div>
+</div>
 
-    <div class="flex-center flex-column">
-      <h1 class="animated fadeIn mb-3">dashboard here</h1>
+<div class="modal fade" id="modalAddChapter" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+aria-hidden="true">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header text-center">
+      <h4 class="modal-title w-100" style="font-family: 'Arima Madurai';">Add a Chapter</h4>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form action="/new" method="POST">
+      <div class="modal-body mx-3">
+          <div class="md-form mb-5">
+            <i class="fas fa-book-open prefix grey-text"></i>
+            <input type="text" name="name" class="form-control validate" placeholder="Name of chapter"/>
+          </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <button type="submit" class="btn start" style="font-size: 14px;">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+
+
+
+<div class="container mt-4">
+
+  <div class="row justify-content-center">
+    <span class="mr-5 mt-4 mb-2"  style="font-size: 60px; font-family: 'Arima Madurai'; color: #5B6933;">Dashboard</span>
+    <div class="col-md-3">
+      <a href="" class="btn rounded-pill mb-5 mt-5 contribute" data-toggle="modal" data-target="#modalPoemForm">
+      Contribute a Poem</a>
     </div>
 
+    <div class="col-md-3">
+      <a href="" class="btn rounded-pill mb-5 mt-5 contribute" data-toggle="modal" data-target="#modalAddChapter">
+      Add a Chapter</a>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <div class="card" style="width: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title">Your profile</h5>
+          <p class="card-text">Status</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Your first name</li>
+          <li class="list-group-item">Your last name</li>
+          <li class="list-group-item">Date joined</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="row align-self-end">
+        <div class="card" style="width: 40rem;">
+          <div class="card-header">
+            Saved Poems
+          </div>
+          <div class="card-body">
+            <blockquote class="blockquote mb-0">
+              <p class="grey-text">Start reading to fill your saved lists!</p>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
 </div>

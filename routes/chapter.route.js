@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Chapter = require("../models/chapter.model");
 
+
 /* 
   @method GETT
   @route chapters/new
@@ -12,7 +13,7 @@ router.get("/new", (request, response) => {
 
 /* 
   @method POST
-  @route chapter/new
+  @route /new
   @desc creates new chapters
 */
 router.post("/new", (request, response) => {
@@ -21,7 +22,7 @@ router.post("/new", (request, response) => {
   chapter
     .save()
     .then(() => {
-      response.redirect("poems/new");
+      response.redirect("/dashboard");
     })
     .catch((err) => {
       console.log(err);
